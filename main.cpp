@@ -1,15 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include "FileReader.hpp"
 using namespace std;
 
-int main(int argc, char* argv[]){
-	// This code is for practicing opening and closing files
-	fstream file;
-	file.open(argv[1], ios::in | ios::out);
-	file << "Writing test." << endl;
-	string string;
-	file >> string;
-	cout << string << endl;
-	file.close();
+int main(int argc, char* argv[])
+{
+	// FileReader teseting
+	if (argc > 0) {
+		FileReader* reader = new FileReader(argv[1]);
+		reader->print();
+		reader->print(13);
+	}
+	
 	return 0;
 } 
