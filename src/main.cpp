@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 	if (argc > 0) {
 		FileReader* reader = new FileReader(argv[1]);
 		reader->print();
-		reader->print(13);
+		reader->print(2);
 	}
 	
 	return 0;
