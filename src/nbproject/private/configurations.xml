@@ -4,6 +4,8 @@
     <df root="." name="0">
       <in>FileReader.cpp</in>
       <in>FileReader.hpp</in>
+      <in>Tokenizer.cpp</in>
+      <in>Tokenizer.hpp</in>
       <in>main.cpp</in>
     </df>
   </logicalFolder>

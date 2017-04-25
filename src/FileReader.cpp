@@ -7,31 +7,26 @@ using namespace std;
 //	Constructors
 FileReader::FileReader(void){}
 FileReader::~FileReader(){}
-FileReader::FileReader(char* filename)
-{
+FileReader::FileReader(char* filename) {
 	_filename = filename;
 	parseLines();
 }
 
 // Line parser
-void FileReader::parseLines(void) 
-{
+void FileReader::parseLines(void) {
 	string str;
 	_file.open(_filename);
-	while(getline(_file, str)) _lines.push_back(str);
+	while(getline(_file, str)){ this->_lines.push_back(str); }
 	_file.close();
+        cout << endl << this->_lines.size() << endl;
 }
 
 //	Line accessors
-parsedLines_t FileReader::getLines(void) 
-{ 
-	parseLines();
-	return _lines; 
+parsedLines_t FileReader::getLines(void) { 
+	return this->_lines; 
 }
-string FileReader::getLine(unsigned int i) 
-{ 
-	parseLines();
-	if (i < _lines.size()) return _lines[i];
+string FileReader::getLine(unsigned int i) { 
+	if (i < this->_lines.size()) return this->_lines[i];
 	else return "ERROR: LINE IS OUT OF BOUNDS";
 }
 
@@ -41,12 +36,8 @@ char* FileReader::getFilename(void) { return _filename; }
 void FileReader::setFilename(char* filename) { _filename = filename; }
 
 //	Prints
-void FileReader::print(void)
-{
-	for (unsigned int i = 0; i < _lines.size(); i++) cout << _lines[i] << endl;
+void FileReader::print(void) {
+	for (unsigned int i = 0; i < this->_lines.size(); i++) cout << this->_lines[i] << endl;
 }
-void FileReader::print(int i)
-{
-	cout << endl << getLine(i) << endl;
-}
+void FileReader::print(int i) { cout << endl << getLine(i) << endl; }
 
